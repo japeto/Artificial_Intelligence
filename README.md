@@ -1,6 +1,6 @@
 
 # CS-750033M-2016 Artificial Intelligence.
-![python](https://img.shields.io/badge/python-2.7%20%26%203-blue.svg)
+![python](https://img.shields.io/badge/python-2.7-blue.svg)
 ![licence](https://img.shields.io/badge/licence-GPL%20v2-blue.svg)
 
 
