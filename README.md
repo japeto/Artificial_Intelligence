@@ -1,9 +1,10 @@
 
-#CS-750033M-2016 Artificial Intelligence.
-[![python](https://img.shields.io/badge/python-2.7%20%26%203-blue.svg)![licence](https://img.shields.io/badge/licence-GPL%20v2-blue.svg)]
-AI project for AI_Univalle
+# CS-750033M-2016 Artificial Intelligence.
+![python](https://img.shields.io/badge/python-2.7%20%26%203-blue.svg)
+![licence](https://img.shields.io/badge/licence-GPL%20v2-blue.svg)
 
-####Features:
+
+#### AI project for AI_Univalle Features:
 - [x] Python 2.7
 - [x] Minimal amount of dependencies
 - [x] Threading ui with tkinter from [mtkinter](https://github.com/abarnert/mttkinter)
