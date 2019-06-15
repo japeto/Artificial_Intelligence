@@ -1,0 +1,6 @@
+3
+# Este es una arrecife
+# sencillo
+7 6 5
+4 4 2 
+4 0 3 

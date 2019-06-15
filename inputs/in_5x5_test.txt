@@ -1,0 +1,7 @@
+5
+# esta es una prueba simple
+2 4 2 2 0
+2 2 1 2 7 #objetivo
+4 2 1 2 2
+2 6 2 4 2 #objetivo
+2 2 2 2 5 #objetivo

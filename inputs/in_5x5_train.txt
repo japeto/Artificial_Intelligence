@@ -1,0 +1,7 @@
+5
+# esta es una prueba simple
+1 1 1 1 1
+1 2 1 2 2
+2 1 0 7 2
+2 1 2 7 6
+2 2 2 2 5

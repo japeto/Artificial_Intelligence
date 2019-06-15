@@ -1,0 +1,232 @@
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+%\documentclass[preprint,10pt,nocopyrightspace]{sigplanconf}
+%\documentclass[letterpaper, twocolumn, 10pt]{article}
+
+\pdfpagewidth=8.5in
+\pdfpageheight=11in
+
+\usepackage{balance}
+% comment out the following line when submitting
+\def \oscardebug{}
+%\def\inputGnumericTable{}
+\newcommand{\subparagraph}{}
+
+% rubber: paper letter
+
+% $Id$
+
+% natbib package in sigplanconf class file conflicts with cite package
+%\usepackage{cite} 
+\usepackage{paralist}
+\usepackage{times}
+\usepackage{framed}
+%\usepackage[small,compact]{titlesec}
+% XXX: This messes up margins
+%\usepackage{geometry}
+%\geometry{margin=1in}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{rotating}
+\usepackage{fancybox}
+%\usepackage{pstricks}
+\usepackage{multirow}
+\usepackage{listings}
+\lstset{language=C}
+\usepackage[hyphens]{url}
+%\usepackage{endnotes}
+\usepackage{comment}
+\usepackage{alltt}
+\usepackage{color}
+%\usepackage{natbibspacing}
+
+\usepackage[latin1]{inputenc}
+%\usepackage[utf8]{inputenc} %Para configuración de caracteres
+%\usepackage[spanish]{babel} %Para configuración de idioma
+
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{lscape}
+%\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{pbox}
+\usepackage{ifthen}
+\usepackage{wasysym}
+\usepackage[sort]{natbib}
+
+\renewcommand\settominwidth[3][\columnwidth]{%
+   \settowidth{#2}{\begin{tabular}{@{}l@{}}#3\end{tabular}}%
+   \ifthenelse{\lengthtest{#1<#2}}{\setlength{#2}{#1}}{}% extra brace group
+}
+
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+% Make list indentation tight
+\setdefaultleftmargin{1em}{0em}{}{}{}{}
+
+\begin{document}
+
+%\singlespace
+%% To make table entries readable
+%\newcommand\T{\rule{0pt}{2.0ex}}
+%\newcommand\B{\rule[-0.9ex]{0pt}{0pt}}
+
+%% Eliminate widows and orphans if needed 
+%% \clubpenalty 10000
+%% \widowpenalty 10000
+%% \def\topfraction{0.9}
+%% \def\bottomfraction{0.9}
+%% \def\textfraction{0.1}
+
+% Squeeze space
+%\renewcommand{\baselinestretch}{0.99}
+%\addtolength{\belowcaptionskip}{-10pt}
+%\addtolength{\abovecaptionskip}{-5pt}
+%\newcommand{\tabpar}[2]{
+%    \begin{center} \begin{tabular}{#1} #2 \end{tabular} \end{center}}
+
+%% \newcommand{\by}[2]{\mbox{#1$\times$#2}}
+
+%% \newcommand{\wunits}[2]{\mbox{#1\,#2}}
+%% \newcommand{\um}{\mbox{$\mu$m}}
+%% \newcommand{\xum}[1]{\wunits{#1}{\um}}
+%% \newcommand{\xnm}[1]{\wunits{#1}{nm}}
+%% \newcommand{\sig}[1]{${\tt #1}$}
+%% \newcommand{\sigb}[1]{$\overline{{\tt #1}}$}
+
+\ifx \oscardebug \undefined
+\newcommand{\fixmedp}[1]{{}}
+\else
+\newcommand{\fixmedp}[1]{{\bf\textcolor{red}{ [ dP FIXME: #1 ]}}}
+\fi
+
+\ifx \oscardebug \undefined
+\newcommand{\fixmebj}[1]{{}}
+\else
+\newcommand{\fixmebj}[1]{{\bf\textcolor{blue}{ [ bJ FIXME: #1 ]}}}
+\fi
+
+\ifx \oscardebug \undefined
+\newcommand{\fixmebb}[1]{{}}
+\else
+\newcommand{\fixmebb}[1]{{\bf\textcolor{green}{ [ bB FIXME: #1 ]}}}
+\fi
+
+\ifx \oscardebug \undefined
+\newcommand{\fixmedz}[1]{{}}
+\else
+\newcommand{\fixmedz}[1]{{\bf\textcolor{magenta}{ [ dZ FIXME: #1 ]}}}
+\fi
+
+\newcommand{\callout}[1]{\vspace{5pt}\noindent\fbox{\parbox{3.25in}{{#1}}}\vspace{5pt}}
+\definecolor{darkgreen}{rgb}{0.000000,0.5,0.000000}
+\newcommand{\change}[1]{{#1}}
+\newcommand{\changebj}[1]{{\textcolor{magenta}{#1}}}
+
+% MW adding. To compile without the red, either:
+% (1) comment in the following line:
+%\def\noeditingmarks{} % or
+% (2) compile with a line like:
+%    $ latex '\def\noeditingmarks{} \input osdi08
+% Also, might be easier to convert your macros to this format. (I like
+% having the comments in another color and also being able to turn them
+% all off with one command.)
+\begin{comment}
+\newcommand{\textred}[1]{\textcolor{red}{#1}}
+\ifx\noeditingmarks\undefined
+    \newcommand{\pgwrapper}[2]{\textred{#1: #2}}
+\else
+    \newcommand{\pgwrapper}[2]{}
+\fi
+\newcommand{\mw}[1]{\pgwrapper{MW}{#1}}
+\end{comment}
+\newcommand*{\TitleFont}{%
+	\usefont{\encodingdefault}{\rmdefault}{b}{n}%
+	\fontsize{18}{20}%
+	\selectfont}
+\newcommand*{\SubtitleFont}{%
+	\usefont{\encodingdefault}{\rmdefault}{b}{n}%
+	\fontsize{14}{20}%
+	\selectfont}
+
+%\def\name#1{#1}%
+%\def\defname#1#2{\expandafter\def\csname #1\endcsname{\name{#2}}\ignorespaces}%
+%\thispagestyle{empty}
+
+\title{\TitleFont PyNEMO 3: SE PERDIERON TODOS.\\ \SubtitleFont Una aplicación \\con Algoritmos Búsqueda informada y no informada}
+
+%\authorinfo{names}{Stony Brook}{emails}
+%\author{\IEEEauthorblockN{Dongli Zhang}
+%\IEEEauthorblockA{Stony Brook University\\
+%jeffersonamado
+%}
+%}
+%\author{\IEEEauthorblockN{Authors Name/s per 1st Affiliation (Author)}
+%\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+%line 2: name of organization, acronyms acceptable\\
+%line 3: City, Country\\
+%line 4: Email: name@xyz.com}
+%\and
+%\IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
+%\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+%line 2: name of organization, acronyms acceptable\\
+%line 3: City, Country\\
+%line 4: Email: name@xyz.com}
+%\and
+%\IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
+%\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+%	line 2: name of organization, acronyms acceptable\\
+%	line 3: City, Country\\
+%	line 4: Email: name@xyz.com}
+%}
+%\author{\IEEEauthorblockN{Jefferson Amado Peña Torres}
+%	\IEEEauthorblockA{Cod. 1329454\\jeffersonamado@correounivalle.edu.co\\
+%		Universidad del Valle\\
+%		Santiago de Cali, Colombia}
+%	\and
+%	\IEEEauthorblockN{Cristian Alexander Valencia Torres}
+%	\IEEEauthorblockA{Cod. 1329454\\cristian.a.valencia@correounivalle.edu.co\\
+%		Universidad del Valle\\
+%		Santiago de Cali, Colombia}
+%	\and
+%	\IEEEauthorblockN{Domenico Di Mambro Cortes}
+%	\IEEEauthorblockA{Cod. 1038452\\CORREODOMENICO\\
+%		Universidad del Valle\\
+%		Santiago de Cali, Colombia}
+%	
+%}
+\author{\IEEEauthorblockN{\textbf{Jefferson Amado Peña Torres, Cristian Alexander Valencia Torres, Domenico Di Mambro Cortes}}
+	\IEEEauthorblockA{
+		1425590, 1329454, 1038452\\
+		(jefferson.amado.pena,cristian.a.valencia,DOMENICO)@correounivalle.edu.co\\
+		Escuela de ingenieria de sistemas y computación (EISC)\\
+		Universidad del Valle\\
+		Santiago de Cali, Colombia}
+	
+}
+
+\maketitle
+
+\date{}
+\input{abstract}
+\IEEEpeerreviewmaketitle
+\input{intro}
+\input{algdescripcion}
+\input{entradas}
+\input{aplicacion}
+\input{resultados}
+\input{conclusion}
+
+\bibliographystyle{abbrv}
+\balance
+\bibliography{bibliography}
+%\fixmedp{15pp limit, all inclusive}
+
+\end{document}
+
